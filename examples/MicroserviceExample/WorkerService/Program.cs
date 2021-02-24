@@ -42,7 +42,7 @@ namespace WorkerService
                         .AddSource(nameof(MessageReceiver))
                         .AddOtlpExporter(opt =>
                         {
-                            opt.Endpoint = new Uri("ingest.lightstep.com:443");
+                            opt.Endpoint = new Uri("https://ingest.lightstep.com:443");
                             opt.Headers = "lightstep-access-token=" + Environment.GetEnvironmentVariable("LS_ACCESS_TOKEN");
                         })
                         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(Environment.GetEnvironmentVariable("LS_SERVICE_NAME"))));
